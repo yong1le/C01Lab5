@@ -27,6 +27,7 @@ jobs:
               uses: supercharge/mongodb-github-action@1.10.0
               with:
                 mongodb-version: ${{ matrix.mongodb-version }}
+                mongodb-port: 27017
 
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
@@ -34,4 +35,5 @@ jobs:
                 node-version: ${{ matrix.node-version }}
 
             - run: npm i
+            - run: npm start &
             - run: npm test
